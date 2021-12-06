@@ -46,7 +46,8 @@ workouts_aggregated as (
 
 joined as (
     select
-        *
+        *,
+        1.0 * total_jumping_time / total_seconds as jumping_ratio
 
     from workouts_aggregated
     left join workout_streaks using (workout_id)
